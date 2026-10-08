@@ -1,257 +1,546 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js" data-theme="day" data-light="auto">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohamed Rafat — Full-Stack Web Developer</title>
-  <meta name="description" content="Mohamed Rafat is a full-stack web developer in Assiut, Egypt, building React front-ends and ASP.NET Core APIs. Available for freelance work and internships." />
-  <link rel="icon" href="portrait.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Mono:wght@400;500&family=Cairo:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mohamed Rafat · Full-stack developer in Assiut, Egypt</title>
+  <meta name="description" content="Mohamed Rafat builds React interfaces and the ASP.NET Core APIs behind them. Full-stack developer in Assiut, Egypt, open to freelance projects and internships.">
+  <meta name="author" content="Mohamed Rafat">
+  <meta name="theme-color" content="#ECE4D3">
+  <link rel="canonical" href="https://0xrafat.github.io/portfolio/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mohamed Rafat">
+  <meta property="og:title" content="Mohamed Rafat · Full-stack developer">
+  <meta property="og:description" content="I build the screen, and everything behind it. React on the front, ASP.NET Core and SQL Server behind.">
+  <meta property="og:url" content="https://0xrafat.github.io/portfolio/">
+  <meta property="og:image" content="https://0xrafat.github.io/portfolio/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Archivo:wdth,wght@62..125,300..800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Martian+Mono:wdth,wght@75..112.5,300..700&family=Reem+Kufi:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&amp;text=%D9%85%D8%AD%D8%AF%D8%B1%D8%A3%D9%81%D8%AA%20&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Boot: decide the lighting before first paint, from the real sun over Assiut. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.className = d.className.replace('no-js', 'js');
+      var R = Math.PI / 180;
+      window.Sun = {
+        lat: 27.1828, lon: 31.1828,
+        // Low-precision solar position (about 1° accuracy), good enough for lighting.
+        position: function (date) {
+          var n = date.getTime() / 864e5 - 10957.5;
+          var g = (357.529 + 0.98560028 * n) * R;
+          var q = 280.459 + 0.98564736 * n;
+          var L = (q + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * R;
+          var e = (23.439 - 3.6e-7 * n) * R;
+          var ra = Math.atan2(Math.cos(e) * Math.sin(L), Math.cos(L));
+          var dec = Math.asin(Math.sin(e) * Math.sin(L));
+          var gmst = (18.697374558 + 24.06570982441908 * n) % 24;
+          var ha = ((gmst * 15 + this.lon) * R) - ra;
+          var lat = this.lat * R;
+          var alt = Math.asin(Math.sin(lat) * Math.sin(dec) + Math.cos(lat) * Math.cos(dec) * Math.cos(ha));
+          var az = Math.atan2(-Math.sin(ha), Math.tan(dec) * Math.cos(lat) - Math.sin(lat) * Math.cos(ha));
+          return { alt: alt / R, az: ((az / R) + 360) % 360 };
+        }
+      };
+      var mode = 'auto';
+      try { mode = localStorage.getItem('mr-light') || 'auto'; } catch (e) {}
+      var alt = window.Sun.position(new Date()).alt;
+      var theme = mode === 'day' ? 'day' : mode === 'night' ? 'night' : (alt > -2 ? 'day' : 'night');
+      d.setAttribute('data-theme', theme);
+      d.setAttribute('data-light', mode);
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohamed Rafat",
+    "alternateName": "محمد رأفت",
+    "jobTitle": "Full-stack web developer",
+    "url": "https://0xrafat.github.io/portfolio/",
+    "email": "mailto:m.rafat11@ymail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Assiut", "addressCountry": "EG" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Badr University in Assiut" },
+    "knowsLanguage": ["ar", "en"],
+    "knowsAbout": ["React", "JavaScript", "ASP.NET Core", "C#", "Entity Framework Core", "SQL Server"],
+    "sameAs": ["https://www.linkedin.com/in/mohamed-rafat0"]
+  }
+  </script>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Floating pill nav -->
-  <header class="nav-wrap">
-    <nav class="nav" aria-label="Main">
-      <a href="#top" class="nav-logo" id="nav-logo">mr<span>.</span></a>
-      <ul>
-        <li><a href="#about" id="nav-about">About</a></li>
-        <li><a href="#work" id="nav-work">Work</a></li>
-        <li><a href="#experience" id="nav-experience">Experience</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta" id="nav-contact">Contact</a>
+  <!-- Shared lattice patterns. The JS writes the geometry; CSS colours it per theme. -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="lat-sun" patternUnits="userSpaceOnUse" width="10" height="10"><path class="lp lp-sun" d=""/></pattern>
+      <pattern id="lat-shutter" patternUnits="userSpaceOnUse" width="10" height="10"><path class="lp lp-shutter" d=""/></pattern>
+      <pattern id="lat-door" patternUnits="userSpaceOnUse" width="10" height="10"><path class="lp lp-door" d=""/></pattern>
+      <pattern id="lat-swatch" patternUnits="userSpaceOnUse" width="10" height="10"><path class="lp lp-swatch" d=""/></pattern>
+    </defs>
+  </svg>
+
+  <!-- CAD cursor: crosshair, pick box, coordinates, and object snap. -->
+  <div class="cad" aria-hidden="true">
+    <div class="cad-cross"><i class="cad-h"></i><i class="cad-v"></i><i class="cad-pick"></i></div>
+    <div class="cad-read"><span data-cad-x>0000</span><span data-cad-y>0000</span></div>
+    <div class="cad-snap"><i></i><i></i><i></i><i></i><span class="cad-snap-label" data-cad-label>link</span></div>
+  </div>
+
+  <header class="bar" data-bar>
+    <a class="bar-mark" href="#top" aria-label="Mohamed Rafat, back to top">
+      <svg class="star" viewBox="-50 -50 100 100" aria-hidden="true"><path class="star-outer" d="M0-42L12.3-29.7L29.7-29.7L29.7-12.3L42 0L29.7 12.3L29.7 29.7L12.3 29.7L0 42L-12.3 29.7L-29.7 29.7L-29.7 12.3L-42 0L-29.7-12.3L-29.7-29.7L-12.3-29.7Z"/><path class="star-inner" d="M0-21L6.2-14.9L14.9-14.9L14.9-6.2L21 0L14.9 6.2L14.9 14.9L6.2 14.9L0 21L-6.2 14.9L-14.9 14.9L-14.9 6.2L-21 0L-14.9-6.2L-14.9-14.9L-6.2-14.9Z"/></svg>
+      <span class="bar-name">Mohamed Rafat</span>
+    </a>
+    <nav class="bar-nav" aria-label="Sections">
+      <a href="#about"><span class="num">01</span>About</a>
+      <a href="#work"><span class="num">02</span>Work</a>
+      <a href="#experience"><span class="num">03</span>Experience</a>
+      <a href="#contact"><span class="num">04</span>Contact</a>
     </nav>
+    <div class="bar-meta">
+      <p class="bar-clock"><span class="sr-only">Local time in Assiut: </span><time data-clock>--:--</time><span class="bar-city" aria-hidden="true">Assiut</span></p>
+      <button class="light" type="button" data-light-toggle aria-describedby="light-desc">
+        <svg class="light-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="li-sun" cx="12" cy="12" r="4.2"/>
+          <g class="li-rays"><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g>
+          <path class="li-moon" d="M15.5 3.6a8.6 8.6 0 1 0 4.9 13.6A7.2 7.2 0 0 1 15.5 3.6Z"/>
+        </svg>
+        <span class="light-label" data-light-label>Auto</span>
+      </button>
+      <span id="light-desc" class="sr-only" data-light-desc>Lighting follows the sun over Assiut. Press to switch between automatic, day and night.</span>
+      <button class="menu-btn" type="button" popovertarget="menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-top">
-        <p class="hero-kicker mono"><span class="blink"></span> Assiut, Egypt — <span id="clock">--:--</span> local time</p>
+  <nav id="menu" class="menu" popover aria-label="Menu">
+    <div class="menu-lattice" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#lat-door)"/></svg></div>
+    <ol class="menu-list">
+      <li><a href="#about"><span class="num">01</span>About <span lang="ar" dir="rtl">عنّي</span></a></li>
+      <li><a href="#work"><span class="num">02</span>Work <span lang="ar" dir="rtl">أعمال</span></a></li>
+      <li><a href="#experience"><span class="num">03</span>Experience <span lang="ar" dir="rtl">المسيرة</span></a></li>
+      <li><a href="#contact"><span class="num">04</span>Contact <span lang="ar" dir="rtl">تفضّل</span></a></li>
+    </ol>
+    <button class="menu-close" type="button" popovertarget="menu" popovertargetaction="hide">Close</button>
+  </nav>
+
+  <!-- Scale ruler: reading progress, drawn like the scale bar on a drawing sheet. -->
+  <aside class="ruler" aria-hidden="true" data-ruler>
+    <div class="ruler-track"><div class="ruler-fill" data-ruler-fill></div></div>
+    <ol class="ruler-marks" data-ruler-marks></ol>
+    <div class="ruler-cursor" data-ruler-cursor><span data-ruler-label>A-00</span></div>
+  </aside>
+
+  <main id="main">
+
+    <!-- ============================================================ A-00 FACADE -->
+    <section class="hero surface-exterior" id="top" data-surface="exterior" data-sheet="A-00" aria-labelledby="hero-title">
+      <div class="sunpatch" aria-hidden="true" data-sunpatch>
+        <svg viewBox="0 0 400 640" preserveAspectRatio="xMidYMid meet">
+          <defs><clipPath id="sun-clip"><path data-arch="16"/></clipPath></defs>
+          <g clip-path="url(#sun-clip)">
+            <rect class="sp-light" x="0" y="0" width="400" height="640"/>
+            <rect class="sp-lines" x="0" y="0" width="400" height="640" fill="url(#lat-sun)"/>
+          </g>
+        </svg>
       </div>
 
-      <div class="hero-content">
-        <div class="hero-main">
-          <h1 class="hero-title" aria-label="Mohamed Rafat">
-            <span class="line" data-split>Mohamed</span>
-            <span class="line line-2"><span data-split>Rafat</span><span class="hero-tag">Full-Stack<br/>Developer</span></span>
-          </h1>
+      <svg class="screen" data-screen aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <clipPath id="arch-inner"><path data-arch="16"/></clipPath>
+          <radialGradient id="interior-glow" gradientUnits="userSpaceOnUse" cx="200" cy="330" r="430">
+            <stop class="ig-0" offset="0"/>
+            <stop class="ig-1" offset="0.55"/>
+            <stop class="ig-2" offset="1"/>
+          </radialGradient>
+        </defs>
+        <g class="screen-panel">
+          <path class="arch-cast" data-arch="0" transform="translate(12 14)"/>
+          <path class="arch-outer" data-arch="0"/>
+          <path class="arch-interior" data-arch="16" fill="url(#interior-glow)"/>
+          <g clip-path="url(#arch-inner)">
+            <path class="lattice-depth" data-lattice-depth d=""/>
+            <g class="lattice-lines" data-lattice-lines></g>
+          </g>
+          <path class="arch-inner-line" data-arch="16"/>
+          <path class="arch-outer-line" data-arch="5"/>
+          <rect class="arch-sill" x="-18" y="618" width="436" height="16"/>
+        </g>
+      </svg>
 
-          <p class="hero-sub reveal">I design and build <mark>responsive React interfaces</mark> and <mark>clean ASP.NET Core APIs</mark>, taking projects from the first message to launch day.</p>
-
-          <div class="hero-actions reveal">
-            <a href="#work" class="btn-hero-solid" id="hero-work-btn">Selected Work ↓</a>
-            <a href="#contact" class="btn-hero-line" id="hero-contact-btn">Get in Touch →</a>
-          </div>
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="code">A-00</span><span>Full-stack developer</span><span class="sep" aria-hidden="true"></span><span>Assiut, Egypt</span></p>
+        <h1 class="hero-name" id="hero-title">
+          <span class="hn-en" data-sweep><span class="hn-1">Mohamed</span> <span class="hn-2">Rafat</span></span>
+          <span class="hn-ar" lang="ar" dir="rtl" data-sweep="rtl">محمد رأفت</span>
+        </h1>
+        <div class="hero-statements" data-rise>
+          <p class="hero-statement">I build the screen,<br> and everything behind it.</p>
+          <p class="hero-ar-statement" lang="ar" dir="rtl">أبني الواجهة… وكل ما خلفها.</p>
         </div>
-
-        <div class="hero-visual reveal">
-          <div class="portrait-card">
-            <div class="portrait-frame">
-              <img src="portrait.jpg" alt="Mohamed Rafat — Full-Stack Developer" />
-            </div>
-            <div class="portrait-badge-pill mono">
-              <span class="blink"></span> Available for projects
-            </div>
-            <a href="#contact" class="badge-spin" id="hero-badge" aria-label="Available for work, contact me">
-              <svg viewBox="0 0 120 120">
-                <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
-                <text><textPath href="#circle">AVAILABLE FOR WORK • AVAILABLE FOR WORK • </textPath></text>
-              </svg>
-              <span class="badge-arrow">↘</span>
-            </a>
-          </div>
+        <p class="hero-sub" data-rise>React interfaces on the front. ASP.NET Core and SQL Server behind them. One developer from the first message to launch day.</p>
+        <div class="hero-cta" data-rise>
+          <a class="tag-btn tag-btn--solid" href="#work"><span>See the work</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M3 9l5 5 5-5"/></svg></a>
+          <a class="tag-btn" href="#contact"><span>Start a project</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
         </div>
+      </div>
+
+      <div class="screen-slot" data-screen-slot>
+        <div class="dim dim--top" aria-hidden="true"><i></i><span data-dim-pattern>8-fold · θ 67.5°</span><i></i></div>
+        <div class="dim dim--side" aria-hidden="true"><i></i><span>Fig. 0 · the screen</span><i></i></div>
+        <a class="callout" href="#generator" data-callout>
+          <span class="callout-line" aria-hidden="true"></span>
+          <span class="callout-text">Generated, not drawn. <u>Re-cut it</u></span>
+        </a>
+      </div>
+
+      <dl class="titleblock" data-titleblock>
+        <div class="tb-cell"><dt>Drawn by</dt><dd>Mohamed Rafat</dd></div>
+        <div class="tb-cell tb-hide-sm"><dt>Discipline</dt><dd>Front-end and back-end</dd></div>
+        <div class="tb-cell tb-hide-sm"><dt>Site</dt><dd>Assiut, EG · 27.18°N 31.18°E</dd></div>
+        <div class="tb-cell"><dt>Light</dt><dd data-sun-reading>Sun over Assiut</dd></div>
+        <div class="tb-cell tb-status"><dt>Status</dt><dd><span class="dot" aria-hidden="true"></span>Open to freelance work and internships</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============================================================ A-01 ABOUT -->
+    <section class="about surface-interior" id="about" data-surface="interior" data-sheet="A-01" aria-labelledby="about-title">
+      <header class="sheet-head">
+        <span class="code">A-01</span>
+        <span class="sheet-title">About</span>
+        <span class="sheet-ar" lang="ar" dir="rtl">من خلف الواجهة</span>
+      </header>
+
+      <div class="about-grid">
+        <figure class="portrait">
+          <div class="portrait-window" data-shutters>
+            <picture>
+              <source srcset="assets/portrait.webp" type="image/webp">
+              <img src="assets/portrait.jpg" width="640" height="640" alt="Mohamed Rafat in a dark suit, smiling, standing in front of a terracotta wall and a white carved lattice screen." loading="lazy" decoding="async">
+            </picture>
+            <div class="shutter shutter--l" aria-hidden="true"><svg><rect width="100%" height="100%" class="shutter-fill"/><rect width="100%" height="100%" fill="url(#lat-shutter)"/></svg></div>
+            <div class="shutter shutter--r" aria-hidden="true"><svg><rect width="100%" height="100%" class="shutter-fill"/><rect width="100%" height="100%" fill="url(#lat-shutter)"/></svg></div>
+          </div>
+          <figcaption><span class="code">Fig. 01</span> The carved screen behind me is where this site's idea came from.</figcaption>
+        </figure>
+
+        <div class="about-body">
+          <h2 class="h2" id="about-title" data-reveal>Behind <em>the screen</em></h2>
+          <p class="lead" data-reveal>I'm a Computer Science student at Badr University in Assiut and a Front-End trainee at DEPI. In summer 2026 I built the back-end of Orman Association's aid management system, and I've taken freelance projects since 2025.</p>
+          <p class="about-quote" data-reveal>I like the moment a stubborn bug finally gives up, and I stay calm until it does.</p>
+
+          <dl class="spec" data-spec>
+            <div class="spec-row"><dt>Degree</dt><dd>B.Sc. Computer Science, 2024–2028</dd></div>
+            <div class="spec-row"><dt>University</dt><dd>Badr University in Assiut</dd></div>
+            <div class="spec-row"><dt>GPA</dt><dd><span class="spec-num" data-count="3.74">3.74</span></dd></div>
+            <div class="spec-row"><dt>Competitive programming</dt><dd>ICPC Honorable Mention, 2025</dd></div>
+            <div class="spec-row"><dt>Languages</dt><dd><span lang="ar">العربية</span> native · English C1</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="materials" data-materials>
+        <h3 class="materials-title"><span class="code">Schedule</span> Materials <span class="sheet-ar" lang="ar" dir="rtl">المواد</span></h3>
+        <ol class="mat-list">
+          <li class="mat">
+            <span class="mat-swatch mat-swatch--facade" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#lat-swatch)"/></svg></span>
+            <span class="mat-layer"><b>Facade</b><small>front-end</small></span>
+            <span class="mat-items">React · JavaScript · HTML · CSS</span>
+          </li>
+          <li class="mat">
+            <span class="mat-swatch mat-swatch--structure" aria-hidden="true"></span>
+            <span class="mat-layer"><b>Structure</b><small>back-end</small></span>
+            <span class="mat-items">C# · ASP.NET Core · Entity Framework Core · AutoMapper · REST APIs</span>
+          </li>
+          <li class="mat">
+            <span class="mat-swatch mat-swatch--foundation" aria-hidden="true"></span>
+            <span class="mat-layer"><b>Foundation</b><small>data</small></span>
+            <span class="mat-items">SQL Server</span>
+          </li>
+          <li class="mat">
+            <span class="mat-swatch mat-swatch--tools" aria-hidden="true"></span>
+            <span class="mat-layer"><b>Tools</b><small>workshop</small></span>
+            <span class="mat-items">Git · Windows Forms · HttpClient</span>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>React</span><i>✦</i><span>ASP.NET Core</span><i>✦</i><span>C#</span><i>✦</i><span>Entity Framework</span><i>✦</i><span>JavaScript</span><i>✦</i><span>REST APIs</span><i>✦</i><span>HTML &amp; CSS</span><i>✦</i><span>SQL Server</span><i>✦</i>
-        <span>React</span><i>✦</i><span>ASP.NET Core</span><i>✦</i><span>C#</span><i>✦</i><span>Entity Framework</span><i>✦</i><span>JavaScript</span><i>✦</i><span>REST APIs</span><i>✦</i><span>HTML &amp; CSS</span><i>✦</i><span>SQL Server</span><i>✦</i>
-      </div>
-    </div>
-
-    <!-- ABOUT / BENTO -->
-    <section id="about" class="section">
-      <header class="sec-head reveal">
-        <span class="mono">(01)</span>
-        <h2>A bit about me</h2>
+    <!-- ============================================================ A-02 WORK -->
+    <section class="work surface-paper" id="work" data-surface="paper" data-sheet="A-02" aria-labelledby="work-title">
+      <header class="sheet-head">
+        <span class="code">A-02</span>
+        <span class="sheet-title">Selected work</span>
+        <span class="sheet-ar" lang="ar" dir="rtl">أعمال مختارة</span>
       </header>
-
-      <div class="bento">
-        <article class="tile tile-intro reveal">
-          <div class="avatar">
-            <img src="portrait.jpg" alt="Mohamed Rafat" onerror="this.remove()" />
-            <span>MR</span>
-          </div>
-          <p>I'm a Computer Science student at <b>Badr University in Assiut</b>, a Front-End trainee at <b>DEPI</b> and a former Back-End trainee at <b>Orman Association</b>. I like the moment a stubborn bug finally gives up, and I stay calm until it does.</p>
-        </article>
-
-        <article class="tile tile-gpa reveal">
-          <span class="mono">Current GPA</span>
-          <strong class="big" data-count="3.74">0.00</strong>
-          <span class="tile-foot">B.Sc. Computer Science · 2024–2028</span>
-        </article>
-
-        <article class="tile tile-icpc reveal">
-          <span class="mono">Competitive programming</span>
-          <strong class="mid">ICPC</strong>
-          <span class="tile-foot">Honorable Mention · 2025</span>
-          <div class="stars" aria-hidden="true"><i></i><i></i><i></i></div>
-        </article>
-
-        <article class="tile tile-stack reveal">
-          <span class="mono">Daily stack</span>
-          <ul class="stack">
-            <li>React</li><li>JavaScript</li><li>HTML/CSS</li><li>C#</li><li>ASP.NET Core</li><li>EF Core</li><li>AutoMapper</li><li>SQL Server</li><li>Git</li>
-          </ul>
-        </article>
-
-        <article class="tile tile-lang reveal">
-          <span class="mono">I speak</span>
-          <p class="lang"><span lang="ar">العربية</span> <small>native</small></p>
-          <p class="lang">English <small>C1</small></p>
-        </article>
+      <div class="section-intro">
+        <h2 class="h2" id="work-title" data-reveal>Three <em>drawings</em></h2>
+        <p data-reveal>Each project drawn the way an architect would show a building: a section through the API, an elevation of the desktop client, and a working model of this site.</p>
       </div>
-    </section>
 
-    <!-- WORK / STACKED CARDS -->
-    <section id="work" class="section">
-      <header class="sec-head reveal">
-        <span class="mono">(02)</span>
-        <h2>Selected work</h2>
-      </header>
-
-      <div class="stack-cards">
-        <article class="card card-1" style="--i:0" id="work-orman-api">
-          <div class="card-info">
-            <span class="mono">01 / Back-End</span>
-            <h3>OrmanSystem API</h3>
-            <p>A humanitarian aid management system for Orman Association. I built the repository layer on Entity Framework Core and a RESTful ASP.NET Core Web API with DTOs, AutoMapper and consistent routing.</p>
-            <ul class="pills"><li>ASP.NET Core</li><li>EF Core</li><li>AutoMapper</li><li>SQL Server</li></ul>
-          </div>
-          <div class="card-visual">
-            <div class="term">
-              <div class="term-bar"><i></i><i></i><i></i><span>orman-api — bash</span></div>
-              <div class="term-body mono">
-                <p><b>GET</b> /api/donations <em>200 OK</em></p>
-                <p><b>POST</b> /api/beneficiaries <em>201 Created</em></p>
-                <p><b>GET</b> /api/distributions/12 <em>200 OK</em></p>
-                <p><b>PUT</b> /api/donations/7 <em>204 No Content</em></p>
-                <p class="cur">▍</p>
+      <!-- 01 — OrmanSystem API -->
+      <article class="plate" id="work-orman-api" aria-labelledby="p1-title">
+        <div class="plate-text">
+          <p class="plate-meta"><span class="code">01</span>Back-end · Orman Association · 2026</p>
+          <h3 class="h3" id="p1-title">OrmanSystem API</h3>
+          <p>A humanitarian aid management system for Orman Association. I built the repository layer on Entity Framework Core and a RESTful ASP.NET Core Web API on top of it, with DTOs, AutoMapper and consistent routing.</p>
+          <ul class="chips" aria-label="Built with"><li>ASP.NET Core</li><li>EF Core</li><li>AutoMapper</li><li>SQL Server</li></ul>
+        </div>
+        <figure class="plate-figure">
+          <div class="drawing" data-drawing>
+            <span class="corner corner--tl" aria-hidden="true"></span><span class="corner corner--tr" aria-hidden="true"></span><span class="corner corner--bl" aria-hidden="true"></span><span class="corner corner--br" aria-hidden="true"></span>
+            <div class="bldg" data-bldg aria-hidden="true">
+              <div class="bldg-client">
+                <span class="bldg-tag">Client</span>
+                <span class="bldg-req" data-req><b data-req-method>GET</b> <span data-req-path>/api/donations</span></span>
+                <span class="bldg-res" data-res><span data-res-code>200 OK</span></span>
+              </div>
+              <div class="bldg-body">
+                <div class="bldg-roof"><span>Routing</span></div>
+                <div class="floor" data-floor><span class="lvl">+3.00</span><b>Controllers</b><small>donations · beneficiaries · distributions</small></div>
+                <div class="slab"></div>
+                <div class="floor" data-floor><span class="lvl">+2.00</span><b>DTOs</b><small>AutoMapper profiles</small></div>
+                <div class="slab"></div>
+                <div class="floor" data-floor><span class="lvl">+1.00</span><b>Repositories</b><small>Entity Framework Core</small></div>
+                <div class="ground"><span class="lvl">±0.00</span></div>
+                <div class="floor floor--base" data-floor><span class="lvl">−1.00</span><b>SQL Server</b><small>the foundation</small></div>
+                <div class="shaft"><span class="car" data-car></span></div>
               </div>
             </div>
+            <p class="sr-only">Diagram: a request enters through routing, passes the controllers, is mapped to DTOs, goes through the EF Core repositories down to SQL Server, and the response travels back up.</p>
           </div>
-        </article>
+          <figcaption><span class="code">Section A–A</span> Requests travel down the stack. Responses come back up.</figcaption>
+        </figure>
+      </article>
 
-        <article class="card card-2" style="--i:1" id="work-orman-desktop">
-          <div class="card-info">
-            <span class="mono">02 / Desktop</span>
-            <h3>OrmanDesktop</h3>
-            <p>A Windows Forms client for association staff. It consumes the API through dedicated service and DTO layers, so daily data entry stays fast and dependable.</p>
-            <ul class="pills"><li>C#</li><li>Windows Forms</li><li>HttpClient</li></ul>
-          </div>
-          <div class="card-visual">
-            <div class="win">
-              <div class="win-bar"><span>OrmanDesktop</span><span>— ▢ ✕</span></div>
-              <div class="win-body">
-                <aside><i class="on"></i><i></i><i></i><i></i></aside>
-                <div class="table">
-                  <div class="tr th"><i></i><i></i><i></i></div>
-                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
-                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
-                  <div class="tr"><i></i><i></i><i class="wait"></i></div>
-                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
+      <!-- 02 — OrmanDesktop -->
+      <article class="plate plate--flip" id="work-orman-desktop" aria-labelledby="p2-title">
+        <div class="plate-text">
+          <p class="plate-meta"><span class="code">02</span>Desktop · Orman Association · 2026</p>
+          <h3 class="h3" id="p2-title">OrmanDesktop</h3>
+          <p>A Windows Forms client for the association's staff. It talks to the API through dedicated service and DTO layers, so daily data entry stays fast and dependable.</p>
+          <ul class="chips" aria-label="Built with"><li>C#</li><li>Windows Forms</li><li>HttpClient</li></ul>
+        </div>
+        <figure class="plate-figure">
+          <div class="drawing" data-drawing>
+            <span class="corner corner--tl" aria-hidden="true"></span><span class="corner corner--tr" aria-hidden="true"></span><span class="corner corner--bl" aria-hidden="true"></span><span class="corner corner--br" aria-hidden="true"></span>
+            <div class="elev" data-win aria-hidden="true">
+              <div class="elev-dim elev-dim--w"><i></i><span>Staff client</span><i></i></div>
+              <div class="win">
+                <div class="win-bar"><span>OrmanDesktop</span><span class="win-ctl"><i></i><i></i><i></i></span></div>
+                <div class="win-body">
+                  <div class="win-nav"><span class="on">Donations</span><span>Beneficiaries</span><span>Distributions</span></div>
+                  <div class="win-grid">
+                    <div class="wg-row wg-head"><span>ID</span><span>Record</span><span>State</span></div>
+                    <div class="wg-row" data-row><span>0412</span><span class="wg-bar" style="--w:.72"></span><span class="pill" data-pill>pending</span></div>
+                    <div class="wg-row" data-row><span>0413</span><span class="wg-bar" style="--w:.54"></span><span class="pill" data-pill>pending</span></div>
+                    <div class="wg-row" data-row><span>0414</span><span class="wg-bar" style="--w:.86"></span><span class="pill" data-pill>pending</span></div>
+                    <div class="wg-row" data-row><span>0415</span><span class="wg-bar" style="--w:.61"></span><span class="pill" data-pill>pending</span></div>
+                  </div>
                 </div>
+                <div class="win-status"><span class="sync-dot"></span><span data-sync>Syncing through HttpClient</span></div>
               </div>
+              <ol class="elev-notes">
+                <li><span>1</span>Forms</li>
+                <li><span>2</span>Service layer + DTOs</li>
+                <li><span>3</span>HttpClient → OrmanSystem API</li>
+              </ol>
             </div>
+            <p class="sr-only">Diagram: the desktop window lists records, and each row changes from pending to synced as the service layer sends it to the API through HttpClient.</p>
           </div>
-        </article>
+          <figcaption><span class="code">Elevation B</span> Illustrative rows. Each one syncs through the service layer.</figcaption>
+        </figure>
+      </article>
 
-        <article class="card card-3" style="--i:2" id="work-portfolio">
-          <div class="card-info">
-            <span class="mono">03 / Front-End</span>
-            <h3>This Portfolio</h3>
-            <p>Built by hand in HTML, CSS and vanilla JavaScript. It has split-letter animations, a marquee, sticky stacked cards, a magnetic button and a custom cursor, all without a single library.</p>
-            <ul class="pills"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-          </div>
-          <div class="card-visual">
-            <div class="browser">
-              <div class="browser-bar"><i></i><i></i><i></i><span>mohamedrafat.dev</span></div>
-              <div class="browser-body">
-                <div class="b-title"></div>
-                <div class="b-title short"></div>
-                <div class="b-strip"></div>
-                <div class="b-grid"><i></i><i></i><i></i></div>
+      <!-- 03 — This site / the generator -->
+      <article class="plate plate--model" id="generator" aria-labelledby="p3-title">
+        <div class="plate-text">
+          <p class="plate-meta"><span class="code">03</span>Front-end · Personal · 2026</p>
+          <h3 class="h3" id="p3-title">This site</h3>
+          <p>Hand-written HTML, CSS and JavaScript, with GSAP for the scroll choreography. Every lattice is generated with Hankin's 1925 polygons-in-contact method, and the light follows the real sun over Assiut.</p>
+          <p class="plate-try">Pick a symmetry, drag the contact angle, then re-cut the whole site with it.</p>
+          <ul class="chips" aria-label="Built with"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SVG</li><li>GSAP</li></ul>
+        </div>
+        <figure class="plate-figure">
+          <div class="drawing drawing--model">
+            <span class="corner corner--tl" aria-hidden="true"></span><span class="corner corner--tr" aria-hidden="true"></span><span class="corner corner--bl" aria-hidden="true"></span><span class="corner corner--br" aria-hidden="true"></span>
+            <div class="gen">
+              <div class="gen-stage">
+                <svg class="gen-svg" viewBox="0 0 480 480" role="img" aria-labelledby="gen-desc" data-gen-svg>
+                  <title id="gen-desc">Live preview of the generated lattice</title>
+                  <g class="gen-construction" data-gen-construction></g>
+                  <path class="gen-lattice" data-gen-lattice d=""/>
+                  <g class="gen-rays" data-gen-rays></g>
+                </svg>
+                <output class="gen-readout" data-gen-readout aria-live="off">4.8.8 tiling · 8-fold · θ 67.5°</output>
               </div>
+              <form class="gen-controls" data-gen-form>
+                <fieldset class="gen-fold">
+                  <legend>Symmetry</legend>
+                  <label><input type="radio" name="fold" value="6"><span>6</span></label>
+                  <label><input type="radio" name="fold" value="8" checked><span>8</span></label>
+                  <label><input type="radio" name="fold" value="12"><span>12</span></label>
+                </fieldset>
+                <div class="gen-angle">
+                  <span class="gen-angle-head"><label for="gen-angle">Contact angle</label><output for="gen-angle" data-gen-angle-out aria-live="off">67.5°</output></span>
+                  <input id="gen-angle" type="range" name="angle" min="40" max="78" step="0.5" value="67.5" data-gen-angle>
+                </div>
+                <label class="gen-check"><input type="checkbox" name="construction" data-gen-construction-toggle checked> Show construction</label>
+                <div class="gen-actions">
+                  <button type="submit" class="tag-btn tag-btn--solid" data-gen-apply><span>Re-cut the site</span></button>
+                  <button type="button" class="tag-btn" data-gen-reset><span>Reset</span></button>
+                </div>
+                <p class="gen-status" data-gen-status role="status"></p>
+              </form>
             </div>
           </div>
-        </article>
+          <figcaption><span class="code">Model C</span> Tiling in dashes, Hankin rays in colour, the cut lattice in ink.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- ============================================================ A-03 EXPERIENCE -->
+    <section class="experience surface-paper" id="experience" data-surface="paper" data-sheet="A-03" aria-labelledby="xp-title">
+      <header class="sheet-head">
+        <span class="code">A-03</span>
+        <span class="sheet-title">Experience</span>
+        <span class="sheet-ar" lang="ar" dir="rtl">المسيرة</span>
+      </header>
+      <div class="section-intro">
+        <h2 class="h2" id="xp-title" data-reveal>Construction <em>schedule</em></h2>
+        <p data-reveal>Read it like a building schedule. The overlaps are on purpose: I study, train and ship at the same time.</p>
+      </div>
+
+      <div class="gantt" data-gantt data-from="2024-01" data-to="2029-01">
+        <div class="gantt-key" aria-hidden="true">
+          <span><i class="k k--now"></i>Ongoing</span>
+          <span><i class="k k--done"></i>Completed</span>
+          <span><i class="k k--plan"></i>Planned</span>
+          <span><i class="k k--mile"></i>Milestone</span>
+        </div>
+        <div class="gantt-axis" aria-hidden="true" data-gantt-axis><span class="yr" style="--at:0">2024</span><span class="yr" style="--at:.2003">2025</span><span class="yr" style="--at:.4001">2026</span><span class="yr" style="--at:.5999">2027</span><span class="yr" style="--at:.7997">2028</span><span class="today-label">Today · Oct 2026</span></div>
+        <ol class="gantt-rows">
+          <li class="g-row" data-start="2026" data-end="now" data-kind="now" style="--s:.4001;--e:.5539">
+            <div class="g-text">
+              <h3 class="g-title">Front-End Trainee</h3>
+              <p class="g-org">DEPI · MCIT</p>
+              <p class="g-date">2026 – now</p>
+              <p class="g-desc">Selected for Egypt's national tech program to build responsive interfaces with React, JavaScript, HTML and CSS.</p>
+            </div>
+            <div class="g-track" aria-hidden="true"><span class="g-bar"></span></div>
+          </li>
+          <li class="g-row" data-start="2026-07" data-end="2026-08" data-kind="done" style="--s:.4992;--e:.5331">
+            <div class="g-text">
+              <h3 class="g-title">Back-End Trainee</h3>
+              <p class="g-org">Orman Association</p>
+              <p class="g-date">Jul – Aug 2026</p>
+              <p class="g-desc">Built the OrmanSystem API and its Windows Forms client in C# and .NET.</p>
+            </div>
+            <div class="g-track" aria-hidden="true"><span class="g-bar"></span></div>
+          </li>
+          <li class="g-row" data-start="2025" data-end="now" data-kind="now" style="--s:.2003;--e:.5539">
+            <div class="g-text">
+              <h3 class="g-title">Freelance Web Developer</h3>
+              <p class="g-org">Remote</p>
+              <p class="g-date">2025 – now</p>
+              <p class="g-desc">Client projects end to end, from requirements and communication to timelines and delivery.</p>
+            </div>
+            <div class="g-track" aria-hidden="true"><span class="g-bar"></span></div>
+          </li>
+          <li class="g-row" data-start="2025" data-kind="mile" style="--s:.2994">
+            <div class="g-text">
+              <h3 class="g-title">ICPC Honorable Mention</h3>
+              <p class="g-org">Competitive programming</p>
+              <p class="g-date">2025</p>
+            </div>
+            <div class="g-track" aria-hidden="true"><span class="g-mile"></span></div>
+          </li>
+          <li class="g-row" data-start="2024" data-end="2028" data-kind="plan" style="--s:0;--e:1;--now-e:.5539">
+            <div class="g-text">
+              <h3 class="g-title">B.Sc. Computer Science</h3>
+              <p class="g-org">Badr University in Assiut</p>
+              <p class="g-date">2024 – 2028</p>
+            </div>
+            <div class="g-track" aria-hidden="true"><span class="g-bar"></span><span class="g-plan"></span></div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <header class="sec-head reveal">
-        <span class="mono">(03)</span>
-        <h2>Experience</h2>
+    <!-- ============================================================ BRIEF -->
+    <section class="brief surface-dusk" data-surface="dusk" aria-label="How I work">
+      <div class="arcade" aria-hidden="true" data-arcade></div>
+      <div class="brief-inner">
+        <p class="brief-en" data-brief>One developer for your front-end and back-end. Clear daily updates. And I keep going until it works exactly as you imagined.</p>
+        <p class="brief-ar" lang="ar" dir="rtl" data-brief-ar>مطوّر واحد للفرونت إند والباك إند، تحديثات يومية واضحة، ولا أسلّم إلا بعد أن يعمل كل شيء كما تخيلته تمامًا.</p>
+      </div>
+      <span class="lantern" aria-hidden="true" data-lantern></span>
+    </section>
+
+    <!-- ============================================================ A-04 CONTACT -->
+    <section class="contact surface-dusk" id="contact" data-surface="dusk" data-sheet="A-04" aria-labelledby="contact-title">
+      <header class="sheet-head">
+        <span class="code">A-04</span>
+        <span class="sheet-title">Contact</span>
+        <span class="sheet-ar" lang="ar" dir="rtl">تواصل</span>
       </header>
 
-      <ol class="xp-list">
-        <li class="xp reveal">
-          <span class="mono xp-date">2026 — Now</span>
-          <h3>Front-End Trainee</h3>
-          <span class="xp-org">DEPI · MCIT</span>
-          <p>Selected for Egypt's national tech program to build responsive interfaces with React, JavaScript, HTML and CSS.</p>
-        </li>
-        <li class="xp reveal">
-          <span class="mono xp-date">Jul — Aug 2026</span>
-          <h3>Back-End Trainee</h3>
-          <span class="xp-org">Orman Association</span>
-          <p>Built the OrmanSystem API and its Windows Forms client in C# and .NET.</p>
-        </li>
-        <li class="xp reveal">
-          <span class="mono xp-date">2025 — Now</span>
-          <h3>Freelance Web Developer</h3>
-          <span class="xp-org">Remote</span>
-          <p>Handle client projects end to end, from requirements and communication to timelines and delivery.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- USP -->
-    <section class="section usp">
-      <p class="usp-en reveal">One developer for your <span class="hl">front-end and back-end</span>, clear daily updates, and I keep going until it works <span class="hl">exactly as you imagined.</span></p>
-      <p class="usp-ar reveal" lang="ar" dir="rtl">مطوّر واحد للفرونت إند والباك إند، تحديثات يومية واضحة، ولا أسلّم إلا بعد أن يعمل كل شيء كما تخيلته تمامًا.</p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <span class="mono">(04) Have a project in mind?</span>
-      <a href="mailto:m.rafat11@ymail.com" class="contact-big" id="contact-email-big">
-        <span data-split>Let's talk</span>
-        <span class="magnet" id="magnet">→</span>
-      </a>
-      <ul class="contact-links">
-        <li><a href="mailto:m.rafat11@ymail.com" id="contact-email">m.rafat11@ymail.com</a></li>
-        <li><a href="https://wa.me/201102323672" target="_blank" rel="noopener" id="contact-whatsapp">WhatsApp ↗</a></li>
-        <li><a href="https://www.linkedin.com/in/mohamed-rafat0" target="_blank" rel="noopener" id="contact-linkedin">LinkedIn ↗</a></li>
-      </ul>
+      <div class="doorway" data-doorway>
+        <div class="door-frame" aria-hidden="true"></div>
+        <div class="door-inside">
+          <p class="welcome" lang="ar" dir="rtl">تفضّل</p>
+          <h2 class="h2 contact-title" id="contact-title">Come <em>in.</em></h2>
+          <p class="contact-line">Have a project in mind, or an internship to offer? The door is open.</p>
+          <div class="email-row">
+            <a class="email" href="mailto:m.rafat11@ymail.com">m.rafat11@ymail.com</a>
+            <button class="copy" type="button" data-copy="m.rafat11@ymail.com"><span data-copy-label>Copy</span></button>
+          </div>
+          <ul class="contact-links">
+            <li><a href="https://wa.me/201102323672" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/mohamed-rafat0" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a></li>
+            <li><a href="mailto:m.rafat11@ymail.com">Email<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7"/></svg></a></li>
+          </ul>
+          <p class="contact-status"><span class="dot" aria-hidden="true"></span>Open to freelance work and internships</p>
+        </div>
+        <div class="door door--l" aria-hidden="true" data-door><div class="door-face"><svg><rect width="100%" height="100%" fill="url(#lat-door)"/></svg></div><div class="door-panel"></div><span class="door-knocker"></span></div>
+        <div class="door door--r" aria-hidden="true" data-door><div class="door-face"><svg><rect width="100%" height="100%" fill="url(#lat-door)"/></svg></div><div class="door-panel"></div><span class="door-knocker"></span></div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> Mohamed Rafat</span>
-    <a href="#top" id="back-top">Back to top ↑</a>
+  <!-- ============================================================ TITLE BLOCK -->
+  <footer class="footer surface-ink" data-surface="ink">
+    <dl class="fblock">
+      <div class="fb-cell fb-cell--wide"><dt>Project</dt><dd>Portfolio of Mohamed Rafat <span class="sig" lang="ar" dir="rtl">محمد رأفت</span></dd></div>
+      <div class="fb-cell"><dt>Site</dt><dd>Assiut, Egypt</dd></div>
+      <div class="fb-cell"><dt>Sheet</dt><dd>A-05 of 05</dd></div>
+      <div class="fb-cell"><dt>Scale</dt><dd>1 : 1</dd></div>
+      <div class="fb-cell"><dt>Revised</dt><dd><time datetime="2026-10">October 2026</time></dd></div>
+      <div class="fb-cell fb-cell--wide"><dt>Colophon</dt><dd>Set in Bodoni Moda, Archivo, Martian Mono, Reem Kufi, Amiri and Aref Ruqaa. Lattice by Hankin's method. Light by the sun.</dd></div>
+      <div class="fb-cell"><dt>Copyright</dt><dd>© <span data-year>2026</span> Mohamed Rafat</dd></div>
+      <div class="fb-cell fb-cell--top"><dt>Return</dt><dd><a href="#top">Back to the facade ↑</a></dd></div>
+    </dl>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/SplitText.min.js" defer></script>
+  <script src="vendor/lenis.min.js" defer></script>
+  <script src="js/lattice.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
