@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Rafat — Full-Stack Web Developer</title>
+  <meta name="description" content="Mohamed Rafat is a full-stack web developer in Assiut, Egypt, building React front-ends and ASP.NET Core APIs. Available for freelance work and internships." />
+  <link rel="icon" href="assets/profile.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Mono:wght@400;500&family=Cairo:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- Floating pill nav -->
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <a href="#top" class="nav-logo" id="nav-logo">mr<span>.</span></a>
+      <ul>
+        <li><a href="#about" id="nav-about">About</a></li>
+        <li><a href="#work" id="nav-work">Work</a></li>
+        <li><a href="#experience" id="nav-experience">Experience</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta" id="nav-contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-top">
+        <p class="hero-kicker mono"><span class="blink"></span> Assiut, Egypt — <span id="clock">--:--</span> local time</p>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-main">
+          <h1 class="hero-title" aria-label="Mohamed Rafat">
+            <span class="line" data-split>Mohamed</span>
+            <span class="line line-2"><span data-split>Rafat</span><span class="hero-tag">Full-Stack<br/>Developer</span></span>
+          </h1>
+
+          <p class="hero-sub reveal">I design and build <mark>responsive React interfaces</mark> and <mark>clean ASP.NET Core APIs</mark>, taking projects from the first message to launch day.</p>
+
+          <div class="hero-actions reveal">
+            <a href="#work" class="btn-hero-solid" id="hero-work-btn">Selected Work ↓</a>
+            <a href="#contact" class="btn-hero-line" id="hero-contact-btn">Get in Touch →</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="portrait-card">
+            <div class="portrait-frame">
+              <img src="assets/portrait.jpg" alt="Mohamed Rafat — Full-Stack Developer" />
+            </div>
+            <div class="portrait-badge-pill mono">
+              <span class="blink"></span> Available for projects
+            </div>
+            <a href="#contact" class="badge-spin" id="hero-badge" aria-label="Available for work, contact me">
+              <svg viewBox="0 0 120 120">
+                <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+                <text><textPath href="#circle">AVAILABLE FOR WORK • AVAILABLE FOR WORK • </textPath></text>
+              </svg>
+              <span class="badge-arrow">↘</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>React</span><i>✦</i><span>ASP.NET Core</span><i>✦</i><span>C#</span><i>✦</i><span>Entity Framework</span><i>✦</i><span>JavaScript</span><i>✦</i><span>REST APIs</span><i>✦</i><span>HTML &amp; CSS</span><i>✦</i><span>SQL Server</span><i>✦</i>
+        <span>React</span><i>✦</i><span>ASP.NET Core</span><i>✦</i><span>C#</span><i>✦</i><span>Entity Framework</span><i>✦</i><span>JavaScript</span><i>✦</i><span>REST APIs</span><i>✦</i><span>HTML &amp; CSS</span><i>✦</i><span>SQL Server</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ABOUT / BENTO -->
+    <section id="about" class="section">
+      <header class="sec-head reveal">
+        <span class="mono">(01)</span>
+        <h2>A bit about me</h2>
+      </header>
+
+      <div class="bento">
+        <article class="tile tile-intro reveal">
+          <div class="avatar">
+            <img src="assets/portrait.jpg" alt="" onerror="this.remove()" />
+            <span>MR</span>
+          </div>
+          <p>I'm a Computer Science student at <b>Badr University in Assiut</b>, a Front-End trainee at <b>DEPI</b> and a former Back-End trainee at <b>Orman Association</b>. I like the moment a stubborn bug finally gives up, and I stay calm until it does.</p>
+        </article>
+
+        <article class="tile tile-gpa reveal">
+          <span class="mono">Current GPA</span>
+          <strong class="big" data-count="3.74">0.00</strong>
+          <span class="tile-foot">B.Sc. Computer Science · 2024–2028</span>
+        </article>
+
+        <article class="tile tile-icpc reveal">
+          <span class="mono">Competitive programming</span>
+          <strong class="mid">ICPC</strong>
+          <span class="tile-foot">Honorable Mention · 2025</span>
+          <div class="stars" aria-hidden="true"><i></i><i></i><i></i></div>
+        </article>
+
+        <article class="tile tile-stack reveal">
+          <span class="mono">Daily stack</span>
+          <ul class="stack">
+            <li>React</li><li>JavaScript</li><li>HTML/CSS</li><li>C#</li><li>ASP.NET Core</li><li>EF Core</li><li>AutoMapper</li><li>SQL Server</li><li>Git</li>
+          </ul>
+        </article>
+
+        <article class="tile tile-lang reveal">
+          <span class="mono">I speak</span>
+          <p class="lang"><span lang="ar">العربية</span> <small>native</small></p>
+          <p class="lang">English <small>C1</small></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORK / STACKED CARDS -->
+    <section id="work" class="section">
+      <header class="sec-head reveal">
+        <span class="mono">(02)</span>
+        <h2>Selected work</h2>
+      </header>
+
+      <div class="stack-cards">
+        <article class="card card-1" style="--i:0" id="work-orman-api">
+          <div class="card-info">
+            <span class="mono">01 / Back-End</span>
+            <h3>OrmanSystem API</h3>
+            <p>A humanitarian aid management system for Orman Association. I built the repository layer on Entity Framework Core and a RESTful ASP.NET Core Web API with DTOs, AutoMapper and consistent routing.</p>
+            <ul class="pills"><li>ASP.NET Core</li><li>EF Core</li><li>AutoMapper</li><li>SQL Server</li></ul>
+          </div>
+          <div class="card-visual">
+            <div class="term">
+              <div class="term-bar"><i></i><i></i><i></i><span>orman-api — bash</span></div>
+              <div class="term-body mono">
+                <p><b>GET</b> /api/donations <em>200 OK</em></p>
+                <p><b>POST</b> /api/beneficiaries <em>201 Created</em></p>
+                <p><b>GET</b> /api/distributions/12 <em>200 OK</em></p>
+                <p><b>PUT</b> /api/donations/7 <em>204 No Content</em></p>
+                <p class="cur">▍</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-2" style="--i:1" id="work-orman-desktop">
+          <div class="card-info">
+            <span class="mono">02 / Desktop</span>
+            <h3>OrmanDesktop</h3>
+            <p>A Windows Forms client for association staff. It consumes the API through dedicated service and DTO layers, so daily data entry stays fast and dependable.</p>
+            <ul class="pills"><li>C#</li><li>Windows Forms</li><li>HttpClient</li></ul>
+          </div>
+          <div class="card-visual">
+            <div class="win">
+              <div class="win-bar"><span>OrmanDesktop</span><span>— ▢ ✕</span></div>
+              <div class="win-body">
+                <aside><i class="on"></i><i></i><i></i><i></i></aside>
+                <div class="table">
+                  <div class="tr th"><i></i><i></i><i></i></div>
+                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
+                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
+                  <div class="tr"><i></i><i></i><i class="wait"></i></div>
+                  <div class="tr"><i></i><i></i><i class="ok"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-3" style="--i:2" id="work-portfolio">
+          <div class="card-info">
+            <span class="mono">03 / Front-End</span>
+            <h3>This Portfolio</h3>
+            <p>Built by hand in HTML, CSS and vanilla JavaScript. It has split-letter animations, a marquee, sticky stacked cards, a magnetic button and a custom cursor, all without a single library.</p>
+            <ul class="pills"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+          <div class="card-visual">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i><span>mohamedrafat.dev</span></div>
+              <div class="browser-body">
+                <div class="b-title"></div>
+                <div class="b-title short"></div>
+                <div class="b-strip"></div>
+                <div class="b-grid"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <header class="sec-head reveal">
+        <span class="mono">(03)</span>
+        <h2>Experience</h2>
+      </header>
+
+      <ol class="xp-list">
+        <li class="xp reveal">
+          <span class="mono xp-date">2026 — Now</span>
+          <h3>Front-End Trainee</h3>
+          <span class="xp-org">DEPI · MCIT</span>
+          <p>Selected for Egypt's national tech program to build responsive interfaces with React, JavaScript, HTML and CSS.</p>
+        </li>
+        <li class="xp reveal">
+          <span class="mono xp-date">Jul — Aug 2026</span>
+          <h3>Back-End Trainee</h3>
+          <span class="xp-org">Orman Association</span>
+          <p>Built the OrmanSystem API and its Windows Forms client in C# and .NET.</p>
+        </li>
+        <li class="xp reveal">
+          <span class="mono xp-date">2025 — Now</span>
+          <h3>Freelance Web Developer</h3>
+          <span class="xp-org">Remote</span>
+          <p>Handle client projects end to end, from requirements and communication to timelines and delivery.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- USP -->
+    <section class="section usp">
+      <p class="usp-en reveal">One developer for your <span class="hl">front-end and back-end</span>, clear daily updates, and I keep going until it works <span class="hl">exactly as you imagined.</span></p>
+      <p class="usp-ar reveal" lang="ar" dir="rtl">مطوّر واحد للفرونت إند والباك إند، تحديثات يومية واضحة، ولا أسلّم إلا بعد أن يعمل كل شيء كما تخيلته تمامًا.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <span class="mono">(04) Have a project in mind?</span>
+      <a href="mailto:m.rafat11@ymail.com" class="contact-big" id="contact-email-big">
+        <span data-split>Let's talk</span>
+        <span class="magnet" id="magnet">→</span>
+      </a>
+      <ul class="contact-links">
+        <li><a href="mailto:m.rafat11@ymail.com" id="contact-email">m.rafat11@ymail.com</a></li>
+        <li><a href="https://wa.me/201102323672" target="_blank" rel="noopener" id="contact-whatsapp">WhatsApp ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mohamed-rafat0" target="_blank" rel="noopener" id="contact-linkedin">LinkedIn ↗</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Mohamed Rafat</span>
+    <a href="#top" id="back-top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
